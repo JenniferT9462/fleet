@@ -1,0 +1,23 @@
+info:
+  name: vehicles
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://127.0.0.1:5000/vehicles
+  body:
+    type: json
+    data: |-
+      {
+        "vehicle_id": 10,
+        "license_plate": "456hgd",
+        "model": "Kia Soul"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

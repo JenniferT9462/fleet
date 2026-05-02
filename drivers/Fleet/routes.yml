@@ -1,0 +1,22 @@
+info:
+  name: routes
+  type: http
+
+http:
+  method: POST
+  url: http://127.0.0.1:5000/route
+  body:
+    type: json
+    data: |-
+      {
+        "route_id": 30,
+        "date": "04-23-26",
+        "service_zone": "east-4"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
