@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from database import init_db
 from routes.drivers import drivers
 from routes.vehicles import vehicles
@@ -8,6 +9,7 @@ from routes.packages import packages
 init_db()
 
 app = Flask(__name__)
+CORS(app)
 app.register_blueprint(drivers, url_prefix="/drivers")
 app.register_blueprint(vehicles, url_prefix="/vehicles")
 app.register_blueprint(packages, url_prefix="/packages")

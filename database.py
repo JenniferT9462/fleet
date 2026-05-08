@@ -19,10 +19,7 @@ def init_db():
     conn = get_connection()
     cur = conn.cursor()
     cur.execute("""
-                DROP TABLE IF EXISTS packages CASCADE;
-                DROP TABLE IF EXISTS route CASCADE;
-                DROP TABLE IF EXISTS vehicles CASCADE;
-                DROP TABLE IF EXISTS drivers CASCADE;
+            
 
                 create table  drivers
                 (
