@@ -2,3 +2,5 @@ __pycache__/
 venv/
 .env
 *.pyc
+flask_out.txt
+flask_err.txt

@@ -21,7 +21,7 @@ def init_db():
     cur.execute("""
             
 
-                create table  drivers
+                create table if not exists drivers
                 (
     
                     driver_id SERIAL PRIMARY KEY,
@@ -30,7 +30,7 @@ def init_db():
                     
                 );
 
-                create table  vehicles
+                create table if not exists vehicles
                 (
     
                     vehicle_id SERIAL PRIMARY KEY,
@@ -41,7 +41,7 @@ def init_db():
                     
                 );
 
-                create table  route
+                create table if not exists route
                 (
     
                     route_id SERIAL PRIMARY KEY,
@@ -52,7 +52,7 @@ def init_db():
                     
                 );
 
-                create table packages
+                create table if not exists packages
                 (
     
                     package_id SERIAL PRIMARY KEY,

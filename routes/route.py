@@ -53,7 +53,7 @@ def update_route(id):
                     update route
                     set date = %s ,
                         service_zone = %s
-                    where package_id = %s
+                    where route_id = %s
             """, (data["date"], data["service_zone"], id))
         conn.commit()
         cur.close()

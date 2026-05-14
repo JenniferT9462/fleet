@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 from flask_cors import CORS
 from database import init_db
 from routes.drivers import drivers
@@ -16,9 +16,10 @@ app.register_blueprint(packages, url_prefix="/packages")
 app.register_blueprint(route, url_prefix="/route")
 
 
-@app.route("/")
-def home():
-    return jsonify({"message": "Server Online"})
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
