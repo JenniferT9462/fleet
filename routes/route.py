@@ -29,10 +29,10 @@ def create_route():
         data = request.get_json()
         cur.execute("""
                     insert into route
-                    (route_id, date, service_zone)
-                    values 
-                    (%s, %s, %s)
-            """, (data["route_id"],data["date"], data["service_zone"]))
+                    (route_id, date, service_zone, driver_id)
+                    values
+                    (%s, %s, %s, %s)
+            """, (data["route_id"], data["date"], data["service_zone"], data.get("driver_id")))
         conn.commit()
         cur.close()
         conn.close()
@@ -51,10 +51,11 @@ def update_route(id):
         print(data)
         cur.execute("""
                     update route
-                    set date = %s ,
-                        service_zone = %s
+                    set date = %s,
+                        service_zone = %s,
+                        driver_id = %s
                     where route_id = %s
-            """, (data["date"], data["service_zone"], id))
+            """, (data["date"], data["service_zone"], data.get("driver_id"), id))
         conn.commit()
         cur.close()
         conn.close()

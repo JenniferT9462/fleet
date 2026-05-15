@@ -29,10 +29,10 @@ def create_vehicle():
         data = request.get_json()
         cur.execute("""
                     insert into vehicles
-                    (vehicle_id, license_plate, model)
-                    values 
-                    (%s, %s, %s)
-            """, (data["vehicle_id"],data["license_plate"], data["model"]))
+                    (vehicle_id, license_plate, model, driver_id)
+                    values
+                    (%s, %s, %s, %s)
+            """, (data["vehicle_id"], data["license_plate"], data["model"], data.get("driver_id")))
         conn.commit()
         cur.close()
         conn.close()
@@ -48,13 +48,13 @@ def update_vehicle(id):
         conn= get_connection()
         cur = conn.cursor()
         data = request.get_json()
-        print(data)
         cur.execute("""
                     update vehicles
-                    set license_plate = %s ,
-                        model = %s
+                    set license_plate = %s,
+                        model = %s,
+                        driver_id = %s
                     where vehicle_id = %s
-            """, (data["license_plate"], data["model"], id))
+            """, (data["license_plate"], data["model"], data.get("driver_id"), id))
         conn.commit()
         cur.close()
         conn.close()
