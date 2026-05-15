@@ -11,10 +11,10 @@ init_db()
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 CORS(app)
-app.register_blueprint(drivers, url_prefix="/drivers")
-app.register_blueprint(vehicles, url_prefix="/vehicles")
-app.register_blueprint(packages, url_prefix="/packages")
-app.register_blueprint(route, url_prefix="/route")
+app.register_blueprint(drivers, url_prefix="/api/drivers")
+app.register_blueprint(vehicles, url_prefix="/api/vehicles")
+app.register_blueprint(packages, url_prefix="/api/packages")
+app.register_blueprint(route, url_prefix="/api/route")
 
 
 @app.route("/", defaults={"path": ""})
