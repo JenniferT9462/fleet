@@ -9,6 +9,7 @@ from routes.packages import packages
 init_db()
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 CORS(app)
 app.register_blueprint(drivers, url_prefix="/drivers")
 app.register_blueprint(vehicles, url_prefix="/vehicles")

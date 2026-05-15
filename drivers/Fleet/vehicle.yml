@@ -1,17 +1,17 @@
 info:
-  name: packages
+  name: vehicle
   type: http
 
 http:
   method: POST
-  url: http://127.0.0.1:5000/packages
+  url: http://127.0.0.1:5000/vehicle
   body:
     type: json
     data: |-
       {
-        "weight": 23.5,
-        "description": "Two iPads",
-        "route_id": 1
+        "license_plate": "234fgh",
+        "model": "Kia Soul",
+        "driver_id": 1
       }
   auth: inherit
 
@@ -20,4 +20,3 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
-​

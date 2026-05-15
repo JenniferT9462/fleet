@@ -1,17 +1,16 @@
 info:
-  name: packages
+  name: driver
   type: http
 
 http:
-  method: POST
-  url: http://127.0.0.1:5000/packages
+  method: GET
+  url: http://127.0.0.1:5000/driver
   body:
     type: json
     data: |-
       {
-        "weight": 23.5,
-        "description": "Two iPads",
-        "route_id": 1
+        "name": "Mark Smith",
+        "license_type": "CDL"
       }
   auth: inherit
 
@@ -20,4 +19,3 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
-​
