@@ -29,10 +29,10 @@ def create_package():
         data = request.get_json()
         cur.execute("""
                     insert into packages
-                    (package_id, description, weight)
-                    values 
-                    (%s, %s, %s)
-            """, (data["package_id"],data["description"], data["weight"]))
+                    (package_id, description, weight, route_id)
+                    values
+                    (%s, %s, %s, %s)
+            """, (data["package_id"], data["description"], data["weight"], data.get("route_id")))
         conn.commit()
         cur.close()
         conn.close()
@@ -51,10 +51,11 @@ def update_package(id):
         print(data)
         cur.execute("""
                     update packages
-                    set description = %s ,
-                        weight = %s
+                    set description = %s,
+                        weight = %s,
+                        route_id = %s
                     where package_id = %s
-            """, (data["description"], data["weight"], id))
+            """, (data["description"], data["weight"], data.get("route_id"), id))
         conn.commit()
         cur.close()
         conn.close()
